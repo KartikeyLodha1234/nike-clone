@@ -1,0 +1,494 @@
+.profile-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  min-height: 600px;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.profile-header h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.profile-header p {
+  font-size: 1.1em;
+  color: #666;
+}
+
+.profile-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  margin-bottom: 60px;
+}
+
+.account-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.account-card:hover {
+  border-color: #000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.card-icon {
+  font-size: 2.5em;
+  min-width: 60px;
+  text-align: center;
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card-content h3 {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: #000;
+}
+
+.card-content p {
+  margin: 8px 0;
+  color: #666;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+.user-info-card {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #f5f5f5 0%, #fff 100%);
+}
+
+.user-info-card .card-icon {
+  font-size: 3em;
+}
+
+.user-name {
+  font-size: 1.3em !important;
+  font-weight: 600 !important;
+  color: #000 !important;
+  margin-top: 5px !important;
+}
+
+.user-email {
+  color: #0066cc !important;
+  font-size: 0.95em !important;
+  text-decoration: none;
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  font-size: 0.9em;
+}
+
+.card-link:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+
+.loading {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 1.2em;
+  color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-header h1 {
+    font-size: 2em;
+  }
+
+  .profile-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .account-card {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .card-icon {
+    font-size: 2em;
+    min-width: 50px;
+  }
+
+  .user-info-card .card-icon {
+    font-size: 2.5em;
+  }
+
+  .card-content h3 {
+    font-size: 1.1em;
+  }
+
+  .card-content p {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-container {
+    margin: 20px auto;
+  }
+
+  .profile-header {
+    margin-bottom: 30px;
+  }
+
+  .profile-header h1 {
+    font-size: 1.8em;
+  }
+
+  .profile-header p {
+    font-size: 0.95em;
+  }
+
+  .account-card {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .card-icon {
+    font-size: 2.5em;
+  }
+
+  .card-link {
+    display: block;
+  }
+}
+
+/* Interactive States */
+.account-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.account-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.account-card:hover::before {
+  left: 100%;
+}
+.loading {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 1.1em;
+  color: #666;
+}
+
+.btn-signin {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: #000;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  font-weight: 500;
+}
+
+.btn-signin:hover {
+  background: #333;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px 20px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* MODAL STYLES */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+  font-size: 1.5em;
+  margin: 0;
+  color: #000;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+.modal-body {
+  padding: 25px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #000;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input:disabled {
+  background: #f5f5f5;
+  color: #999;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.checkbox-group {
+  margin-bottom: 15px;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.checkbox-group input {
+  width: auto;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px 25px;
+  border-top: 1px solid #eee;
+}
+
+.btn-cancel {
+  padding: 10px 20px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+  background: #e8e8e8;
+}
+
+.btn-save,
+.btn-shop {
+  padding: 10px 25px;
+  background: #000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-save:hover,
+.btn-shop:hover {
+  background: #333;
+}
+
+.empty-message {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #333;
+  margin: 20px 0 10px 0;
+}
+
+.empty-subtext {
+  color: #999;
+  font-size: 0.95em;
+  margin: 0;
+}
+
+.contact-option {
+  margin-bottom: 25px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.contact-option h3 {
+  margin: 0 0 10px 0;
+  color: #000;
+  font-size: 1.1em;
+}
+
+.contact-option p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.text-small {
+  font-size: 0.85em;
+  color: #999;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.benefits-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1em;
+  color: #333;
+}
+
+.benefits-list li:last-child {
+  border-bottom: none;
+}
+
+.membership-info {
+  background: #f0f0f0;
+  padding: 15px;
+  border-radius: 6px;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Make cards clickable */
+.account-card {
+  cursor: pointer !important;
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    max-width: 95%;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-footer {
+    flex-direction: column-reverse;
+  }
+  
+  .modal-footer button,
+  .modal-footer a {
+    width: 100%;
+  }
+}
